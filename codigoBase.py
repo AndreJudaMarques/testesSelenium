@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 
 def iniciar_driver():
@@ -16,5 +17,25 @@ def iniciar_driver():
       return driver
 
 driver = iniciar_driver()
-driver.get('https://facebook.com')
-input('aperte qualquer tecla')
+driver.get('https://cursoautomacao.netlify.app/')
+
+#encontrar elementos por id
+# botaoAlerta = driver.find_element(By.ID, 'buttonalerta')
+# botoes = driver.find_elements(By.ID, 'buttonalerta')
+# if botaoAlerta is not None:
+#       print('botao encontrado')
+# if botoes is not None:
+#       print('botoes encontrados')
+
+
+# encontrar elementos por nome
+# seuNome = driver.find_element(By.NAME, 'seu-nome')
+# examples = driver.find_elements(By.NAME, 'exampleRadios')
+# if seuNome is not None:
+#       print('achei o campo')
+# if examples is not None:
+#       print('achei os examples')
+
+
+input('')
+driver.close()
