@@ -24,6 +24,9 @@ botao1 = driver.find_element(By.ID, 'btn1')
 botao2 = driver.find_element(By.XPATH, "//*[contains(text(), 'Botão 2')]")
 botao3 = driver.find_element(By.XPATH, "//*[contains(text(), 'Botão 3')]")
 
+# botao2 = driver.find_element(By.CLASS_NAME, 'btn2.btn.btn-dark') SOLUCAO DO PROFESSOR
+# botao3 = driver.find_element(By.CLASS_NAME, 'btn2.btn.btn-warning')
+
 if botao1.is_enabled():
       print('Botao 1 está habilitado')
 else:
