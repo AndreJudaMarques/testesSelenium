@@ -9,7 +9,7 @@ from time import sleep
 
 def iniciar_driver():
       opcoes = Options()
-      arguments = ['--lang=pt-BR', '--window-size=900,900', '--incognito']
+      arguments = ['--lang=pt-BR', '--window-size=900,1000', '--incognito']
 
       for argument in arguments:
             opcoes.add_argument(argument)
@@ -30,6 +30,15 @@ sleep(1)
 
 botao_cliqueAqui = driver.find_element(By.XPATH, "//*[@id='desafio2']")
 botao_cliqueAqui.click()
+sleep(1)
+
+escondido = driver.find_element(By.XPATH, "//*[@id='escondido']")
+escondido.click()
+escondido.send_keys('Andre Judá Pythonista')
+sleep(1)
+botao_validar = driver.find_element(By.XPATH, "//*[@id='validarDesafio2']")
+botao_validar.click()
+sleep(2)
 
 print(' ')
 input('ENTER PARA SAIR ....')
