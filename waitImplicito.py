@@ -3,9 +3,8 @@ from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
-from time import sleep
-from selenium.webdriver import ActionChains
 from selenium.webdriver.common.keys import Keys
+
 
 def iniciar_driver():
     chrome_options = Options()
@@ -24,19 +23,13 @@ def iniciar_driver():
 
     return driver
 
+
 driver = iniciar_driver()
-driver.get('https://cursoautomacao.netlify.app/exemplo_chains')
+driver.implicitly_wait(10)
+driver.get('http://google.com/flights')
 
-# ActionChains(sequencia de passos)
-botao = driver.find_element(By.ID, 'botao-direito')
-chain = ActionChains(driver)
-chain.context_click(botao).pause(3).send_keys(Keys.DOWN).pause(3).send_keys(
-    Keys.DOWN).pause(3).send_keys(Keys.DOWN).pause(3).click().perform()
+sugestoes_de_voo = driver.find_elements(By.XPATH, "//div[@class='wIuJz']")
 
-driver.get('https://cursoautomacao.netlify.com/')
-window_10_radio_button = driver.find_element(By.ID, 'WindowsRadioButton')
-chain2 = ActionChains(driver)
-chain2.click(window_10_radio_button).pause(3).send_keys(
-    Keys.DOWN).pause(3).send_keys(Keys.UP).click().perform()
+sugestoes_de_voo[0].click()
 input('')
 driver.close()
